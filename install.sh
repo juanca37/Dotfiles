@@ -1,2 +1,2 @@
 #!/bin/bash
-stow -nv nvim zsh tmux
+stow -v nvim zsh tmux
