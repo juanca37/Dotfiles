@@ -3,7 +3,9 @@
 mkdir ~/.config/nvim
 mkdir ~/.config/tmux
 
-sudo apt-get install ripgrep
+sudo apt-get install ripgrep zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
+
 git clone https://github.com/juanca37/.nvim
 git clone https://github.com/juanca37/tmux
 git clone https://github.com/juanca37/zsh
