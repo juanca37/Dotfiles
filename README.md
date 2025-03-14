@@ -12,9 +12,10 @@
 
 Check the command output and, if everything look okay, run
 
-> stow -v nvim zsh tmux
-
-
+> stow -v -t ~ nvim zsh tmux
+> stow -v -t ~/.config/hypr hypr
+> stow -v -t ~/.config/waybar waybar
+> stow -v -t ~/.config/wofi wofi
 
 ### In case of several git accounts in same machine
 
