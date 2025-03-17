@@ -1,6 +1,6 @@
 * {
     border: none;
-    border-radius: 0;
+    border-radius: 25px;
     min-height: 0;
     font-family: "iosevka nerd font";
     font-weight: 500;
@@ -42,8 +42,8 @@ tooltip {
     color: #c7ab7a;
 }
 
-#workspaces button.focused {
-    color: #ddc7a1;
+#workspaces button.active {
+    color: white;
 }
 
 #workspaces button.urgent {
