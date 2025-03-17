@@ -28,7 +28,7 @@
             "active": "",
             "default": "",
             "empty": ""
-        },
+        }
     },
     "wlr/taskbar": {
         "format": "{icon}",
@@ -36,7 +36,7 @@
         "icon-theme": "Numix-Circle",
         "tooltip-format": "{title}",
         "on-click": "activate",
-        "on-click-middle": "close",
+        "on-click-middle": "close"
     },
     "tray": {
         "spacing": 10,
