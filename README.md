@@ -16,6 +16,7 @@ Check the command output and, if everything look okay, run
 > stow -v -t ~/.config/hypr hypr
 > stow -v -t ~/.config/waybar waybar
 > stow -v -t ~/.config/wofi wofi
+> stow -v -t ~/.config/kitty kitty
 
 ### In case of several git accounts in same machine
 
