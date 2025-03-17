@@ -7,7 +7,8 @@
     "margin-bottom": 0,
     "margin-left": 8,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "clock"
@@ -21,10 +22,21 @@
         "network",
         "pulseaudio"
     ],
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "tooltip": false
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 25,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
     },
     "tray": {
         "spacing": 10,
