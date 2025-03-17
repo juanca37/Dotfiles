@@ -9,8 +9,7 @@
 }
 
 window#waybar {
-    background: #1d2021;
-    border: 2px solid #3c3836;
+    background: transparent;
 }
 
 tooltip {
