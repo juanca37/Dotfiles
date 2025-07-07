@@ -4,5 +4,6 @@
     "editor.formatOnSave": true,
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "Cascadia Mono",
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "python.analysis.autoImportCompletions": true
 }
