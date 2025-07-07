@@ -1,8 +1,8 @@
 {
-    "workbench.colorTheme": "Best Themes - Nord Cold",
+    "workbench.colorTheme": "Anysphere dark",
     "workbench.sideBar.location": "right",
     "editor.formatOnSave": true,
-	"editor.fontLigatures": true,
+    "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "Cascadia Mono",
     "diffEditor.ignoreTrimWhitespace": false
 }

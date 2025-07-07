@@ -1,2 +1,8 @@
 # This is a file that contains the VSCode extensions I use
+
+# PYTHON
 charliermarsh.ruff
+
+# THEME
+z4yross.anysphere-dark
+
