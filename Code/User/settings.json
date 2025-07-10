@@ -1,9 +1,30 @@
 {
+    // Appearance
     "workbench.colorTheme": "Anysphere dark",
     "workbench.sideBar.location": "right",
+    "terminal.integrated.fontFamily": "Cascadia Mono",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 18,
+    "editor.tabSize": 16,
+    "editor.wordWrap": "on",
+    "editor.cursorBlinking": "blink",
+    "editor.cursorSmoothCaretAnimation": "off",
+    "editor.cursorStyle": "line",
+    // Python
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "standard",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.unusedImports": "always",
+            "source.fixAll": "explicit"
+        }
+    },
+    // General
     "editor.formatOnSave": true,
     "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "Cascadia Mono",
     "diffEditor.ignoreTrimWhitespace": false,
-    "python.analysis.autoImportCompletions": true
 }
