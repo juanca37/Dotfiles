@@ -36,6 +36,15 @@
                 "headers": {
                     "Authorization": "Bearer ${input:github_mcp_pat}"
                 }
+            },
+            "sequentialthinking": {
+                "command": "docker",
+                "args": [
+                    "run",
+                    "--rm",
+                    "-i",
+                    "mcp/sequentialthinking"
+                ]
             }
         },
         "inputs": [
