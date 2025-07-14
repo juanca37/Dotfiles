@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 
 # Project launcher script using wofi in dmenu mode
-# First selects editor, then shows folders from ~/Configs and ~/Projects
-
-# Define the editor options
-editor_options="VSCode\nNvim (Terminal)\nTmux Session"
-
-# Show editor selection menu
-selected_editor=$(echo -e "$editor_options" | wofi --dmenu --prompt "Open project with:" --width 300 --height 150 --insensitive)
-
-# Exit if no editor was selected
-if [ -z "$selected_editor" ]; then
-    exit 0
-fi
+# First selects project, then shows how to open it
 
 # Get folders from ~/Configs and ~/Projects
 configs_folders=$(find ~/Configs -maxdepth 1 -type d -not -path ~/Configs | sed 's|.*/||' | sed 's|^|📁 Configs/|')
@@ -30,8 +19,8 @@ if [ -z "$all_folders" ]; then
     exit 1
 fi
 
-# Show folder selection menu
-selected_folder=$(echo -e "$all_folders" | wofi --dmenu --prompt "Select folder:" --width 400 --height 200 --insensitive)
+# Show folder selection menu first
+selected_folder=$(echo -e "$all_folders" | wofi --dmenu --prompt "Select project:" --width 400 --height 200 --insensitive)
 
 # Exit if no folder was selected
 if [ -z "$selected_folder" ]; then
@@ -49,15 +38,30 @@ else
     exit 1
 fi
 
-# Execute based on editor selection
-case "$selected_editor" in
-    "VSCode")
+# Define the editor/action options
+action_options="💻 VSCode\n🔧 Nvim (Terminal)\n📺 Tmux Session\n📂 File Browser"
+
+# Show action selection menu
+selected_action=$(echo -e "$action_options" | wofi --dmenu --prompt "Open with:" --width 300 --height 200 --insensitive)
+
+# Exit if no action was selected
+if [ -z "$selected_action" ]; then
+    exit 0
+fi
+
+# Execute based on action selection
+case "$selected_action" in
+    "💻 VSCode")
         code "$folder_path"
         ;;
-    "Nvim (Terminal)")
+    "🔧 Nvim (Terminal)")
         kitty sh -c "cd '$folder_path' && nvim"
         ;;
-    "Tmux Session")
+    "📺 Tmux Session")
         kitty sh -c "cd '$folder_path' && tmux new-session"
+        ;;
+    "📂 File Browser")
+        # Use dolphin file manager
+        dolphin "$folder_path"
         ;;
 esac
