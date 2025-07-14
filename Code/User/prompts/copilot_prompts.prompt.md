@@ -14,6 +14,15 @@ mode: agent
   - Commit after each TDD cycle (test, implement, refactor, commit).
   - Split tests by responsibility and use best practices (e.g., pytest.raises for exceptions).
 
+- Python development rules
+  - Use uv as package manager for all Python projects
+  - Use type hints for all function parameters and return values
+  - Follow PEP 8 style guidelines, use ruff for linting and formatting
+  - Use specific exception types, avoid bare `except:` clauses
+  - Use context managers (`with` statements) for resource management
+  - Write docstrings for all public functions and classes
+  - Keep functions small and focused (single responsibility principle)
+
 
 
 - Git rules
