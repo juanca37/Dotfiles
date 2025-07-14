@@ -1,0 +1,22 @@
+# Wofi configuration file
+# Enable vim-like keybindings and customize behavior
+
+# Display options
+width=400
+height=300
+show=drun
+allow_images=true
+insensitive=true
+
+# Vim-like navigation is enabled by default
+# Additional options for better vim experience
+key_expand=Tab
+key_exit=Escape
+
+# Appearance
+prompt=Search:
+placeholder=Type to search...
+
+# Performance
+cache_file=/tmp/wofi-cache
+parse_search=true
