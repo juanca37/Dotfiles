@@ -1,6 +1,3 @@
-# Wofi configuration file
-# Enable vim-like keybindings and customize behavior
-
 # Display options
 width=400
 height=300
@@ -8,8 +5,13 @@ show=drun
 allow_images=true
 insensitive=true
 
-# Vim-like navigation is enabled by default
-# Additional options for better vim experience
+# Vim-like navigation keys
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_left=Ctrl-h
+key_right=Ctrl-l
+key_pgup=Ctrl-u
+key_pgdn=Ctrl-d
 key_expand=Tab
 key_exit=Escape
 
