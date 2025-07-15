@@ -25,8 +25,20 @@ SUPER + Shift + S         → Move to Special Workspace
 SUPER + LMB              → Move Window (Drag)
 SUPER + RMB              → Resize Window (Drag)"
 
+# Create temporary config for vim motions
+temp_config=$(mktemp)
+cat > "$temp_config" << EOF
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_pgup=Ctrl-u
+key_pgdn=Ctrl-d
+EOF
+
 # Show shortcuts in wofi and capture selection
-selected=$(echo -e "$shortcuts" | wofi --dmenu --prompt "Hyprland Shortcuts:" --width 500 --height 400 --cache-file /dev/null --insensitive)
+selected=$(echo -e "$shortcuts" | wofi --dmenu --prompt "Hyprland Shortcuts:" --width 500 --height 400 --cache-file /dev/null --insensitive --conf "$temp_config")
+
+# Clean up temp file
+rm -f "$temp_config"
 
 # Exit if no selection
 if [[ -z "$selected" ]]; then
