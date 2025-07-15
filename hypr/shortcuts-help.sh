@@ -25,5 +25,53 @@ SUPER + Shift + S         → Move to Special Workspace
 SUPER + LMB              → Move Window (Drag)
 SUPER + RMB              → Resize Window (Drag)"
 
-# Show shortcuts in wofi
-echo -e "$shortcuts" | wofi --dmenu --prompt "Hyprland Shortcuts:" --width 500 --height 400 --cache-file /dev/null
+# Show shortcuts in wofi and capture selection
+selected=$(echo -e "$shortcuts" | wofi --dmenu --prompt "Hyprland Shortcuts:" --width 500 --height 400 --cache-file /dev/null --insensitive)
+
+# Exit if no selection
+if [[ -z "$selected" ]]; then
+    exit 0
+fi
+
+# Execute the selected shortcut
+case "$selected" in
+    *"Show This Help"*)
+        ~/.config/hypr/shortcuts-help.sh
+        ;;
+    *"Open Terminal"*)
+        kitty
+        ;;
+    *"Lock Screen"*)
+        hyprlock
+        ;;
+    *"Audio Output Switcher"*)
+        ~/.config/hypr/audio-switcher.sh
+        ;;
+    *"Project Launcher"*)
+        ~/.config/hypr/project-launcher.sh
+        ;;
+    *"Shutdown Computer"*)
+        ~/.config/hypr/shutdown.sh
+        ;;
+    *"Screenshot"*)
+        hyprshot -m region --clipboard-only
+        ;;
+    *"Kill Active Window"*)
+        hyprctl dispatch killactive
+        ;;
+    *"Exit Hyprland"*)
+        hyprctl dispatch exit
+        ;;
+    *"Application Launcher"*)
+        wofi --show drun
+        ;;
+    *"Toggle Split Direction"*)
+        hyprctl dispatch togglesplit
+        ;;
+    *"Toggle Special Workspace"*)
+        hyprctl dispatch togglespecialworkspace magic
+        ;;
+    *"Move to Special Workspace"*)
+        hyprctl dispatch movetoworkspace special:magic
+        ;;
+esac

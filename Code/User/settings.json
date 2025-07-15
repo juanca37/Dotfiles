@@ -24,8 +24,8 @@
         }
     },
     // General
-    "editor.formatOnSave": true,
-    "editor.fontLigatures": true,
+    "editor.formatOnSave": false,
+    "editor.fontLigatures": "true",
     "diffEditor.ignoreTrimWhitespace": false,
     // Agentic mode
     "mcp": {
