@@ -32,6 +32,7 @@ border: none;
 margin: 5px;
 border: none;
 color: #ebdbb2;
+font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
 }
 
 #entry:selected {
