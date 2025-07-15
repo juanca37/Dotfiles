@@ -34,3 +34,9 @@ mode: agent
   - **Combine git add and git commit into single command: `git add . && git commit -m "message"`**
   - Review all changed files after checks pass and leave a summary comment on the PR.
   - Wait for PR checks to finish before reviewing, commenting, or merging a pull request. **Always wait for checks to complete before any further PR action.**
+
+- Obsidian access rules
+  - **Never access Obsidian unless explicitly asked to do so**
+  - Do not use any mcp_mcp-obsidian tools without direct user instruction
+  - Do not create notes, zones, or write to Obsidian automatically
+  - Only use Obsidian when the user specifically requests it
