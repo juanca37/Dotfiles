@@ -26,13 +26,11 @@ mode: agent
 
 
 - Git rules
-  - **Always create a new branch from main before starting any new work**
   - Always use the `main` branch as the base branch for pull requests.
   - Don't push unless I tell you. Always confirm you are not pushing unless explicitly instructed.
   - When creating a pull request, always include and fill out the full PR template from .github/pull_request_template.md, even if using the API.
   - Use clear, descriptive commit messages and test names. Use conventional commit messages.
   - **Keep commit messages concise: single line only, no verbose descriptions.**
-  - **Combine git add and git commit into single command: `git add . && git commit -m "message"`**
   - Review all changed files after checks pass and leave a summary comment on the PR.
   - Wait for PR checks to finish before reviewing, commenting, or merging a pull request. **Always wait for checks to complete before any further PR action.**
 
