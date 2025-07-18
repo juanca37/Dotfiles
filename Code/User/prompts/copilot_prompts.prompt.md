@@ -26,6 +26,7 @@ mode: agent
 
 
 - Git rules
+  - **Always create a new branch from main before starting any new work**
   - Always use the `main` branch as the base branch for pull requests.
   - Don't push unless I tell you. Always confirm you are not pushing unless explicitly instructed.
   - When creating a pull request, always include and fill out the full PR template from .github/pull_request_template.md, even if using the API.
@@ -34,6 +35,15 @@ mode: agent
   - **Combine git add and git commit into single command: `git add . && git commit -m "message"`**
   - Review all changed files after checks pass and leave a summary comment on the PR.
   - Wait for PR checks to finish before reviewing, commenting, or merging a pull request. **Always wait for checks to complete before any further PR action.**
+
+- GitHub Issue Management Rules
+  - **Always track work from GitHub issues**: If work originates from a GitHub issue, maintain connection and update progress
+  - **Update issues with comments**: Track all progress, decisions, and status changes via issue comments
+  - **Never modify issue descriptions after starting work**: Original issue description stays intact - use comments for updates
+  - **Move issues forward**: Update issue status, labels, and milestones as work progresses
+  - **Create sub-issues when needed**: Break down large issues into smaller, manageable sub-issues
+  - **Reference issues in commits**: Use "fixes #123" or "refs #123" in commit messages to link work
+  - **Close issues when complete**: Properly close issues when work is finished, with summary comment
 
 - Obsidian access rules
   - **Never access Obsidian unless explicitly asked to do so**
