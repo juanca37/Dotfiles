@@ -20,11 +20,9 @@ tooltip {
 
 #clock,
 #tray,
-#cpu,
-#memory,
-#battery,
 #network,
-#pulseaudio {
+#pulseaudio,
+#custom-audio-device {
     margin: 6px 6px 6px 0px;
     padding: 2px 8px;
 }
@@ -42,34 +40,12 @@ tooltip {
     border: 2px solid #c7ab7a;
 }
 
-#battery {
-    background-color: #a9b665;
-    border: 2px solid #c7ab7a;
-    color: #6c782e;
-}
-
-#cpu,
-#memory,
 #network,
-#pulseaudio {
+#pulseaudio,
+#custom-audio-device {
     background-color: #ddc7a1;
     border: 2px solid #c7ab7a;
     color: #1d2021;
-}
-
-#cpu.critical,
-#memory.critical {
-    background-color: #ddc7a1;
-    border: 2px solid #c7ab7a;
-    color: #c14a4a;
-}
-
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-    background-color: #ddc7a1;
-    border: 2px solid #c7ab7a;
-    color: #c14a4a;
 }
 
 /* Taskbar */

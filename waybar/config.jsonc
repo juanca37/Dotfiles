@@ -15,11 +15,10 @@
     ],
     "modules-right": [
         "tray",
+        
         "cpu_text",
-        "cpu",
-        "memory",
-        "battery",
         "network",
+        "custom/audio-device",
         "pulseaudio"
     ],
     "hyprland/workspaces": {
@@ -46,29 +45,6 @@
         "format": "{:%I:%M %p - %a, %d %b %Y}",
         "tooltip": false
     },
-    "cpu": {
-        "format": "cpu {usage}%",
-        "interval": 2,
-        "states": {
-            "critical": 90
-        }
-    },
-    "memory": {
-        "format": "mem {percentage}%",
-        "interval": 2,
-        "states": {
-            "critical": 80
-        }
-    },
-    "battery": {
-        "format": "bat {capacity}%",
-        "interval": 5,
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
-        "tooltip": false
-    },
     "network": {
         "format-wifi": "wifi {bandwidthDownBits}",
         "format-ethernet": "enth {bandwidthDownBits}",
@@ -84,5 +60,12 @@
         "nospacing": 1,
         "on-click": "pavucontrol",
         "tooltip": false
+    },
+    "custom/audio-device": {
+        "exec": "wpctl status | grep -A5 'Audio' | grep '\\*' | head -1 | sed 's/.*\\. //' | cut -c1-15",
+        "format": "{}",
+        "interval": 5,
+        "tooltip": false,
+        "on-click": "~/.config/hypr/audio-switcher.sh"
     }
 }
