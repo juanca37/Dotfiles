@@ -108,7 +108,7 @@ stow -v -t ~/.config wofi     # ~/.config/wofi/
 stow -v -t ~/.config kitty    # ~/.config/kitty/
 
 # Development tools
-stow -v -t ~/.config/Code/User Code  # ~/.config/Code/User/
+stow -v -t ~/.config/Code Code  # ~/.config/Code/User/
 ```
 
 ### Uninstalling Configurations

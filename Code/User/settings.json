@@ -6,7 +6,7 @@
     "editor.minimap.enabled": false,
     "editor.fontSize": 14,
     "editor.lineHeight": 18,
-    "editor.tabSize": 16,
+    "editor.tabSize": 4,
     "editor.wordWrap": "on",
     "editor.cursorBlinking": "blink",
     "editor.cursorSmoothCaretAnimation": "off",
