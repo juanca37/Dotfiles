@@ -16,6 +16,13 @@ window#waybar {
 tooltip {
     background-color: #1d2021;
     border: 2px solid #7c6f64;
+    border-radius: 10px;
+    font-family: "iosevka nerd font";
+}
+
+tooltip label {
+    font-family: "iosevka nerd font";
+    font-size: 12px;
 }
 
 #clock,
