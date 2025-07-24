@@ -3,7 +3,7 @@
 # TODO manager script - Add or view tasks via wofi
 # Usage: todo-add.sh [add|view]
 
-TODO_FILE="$HOME/.todo-list.txt"
+TODO_FILE="$HOME/Docs/Obsidian/Personal/TODO.md"
 
 # Function to add a new TODO task
 
