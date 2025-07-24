@@ -6,9 +6,21 @@
 TODO_FILE="$HOME/.todo-list.txt"
 
 # Function to add a new TODO task
+
 add_todo() {
-    # Prompt for TODO task using wofi
-    task=$(wofi --dmenu --prompt "TODO task:" --height 100 < /dev/null)
+    # Use wl-paste to get clipboard content for pre-fill
+    selected_text=""
+    if command -v wl-paste &>/dev/null; then
+        selected_text=$(wl-paste 2>/dev/null)
+    fi
+    echo "Clipboard content: '$selected_text'"
+
+    # Prompt for TODO task using wofi, pre-filled if clipboard exists
+    if [[ -n "$selected_text" ]]; then
+        task=$(printf "%s" "$selected_text" | wofi --dmenu --prompt "TODO task:" --height 100)
+    else
+        task=$(wofi --dmenu --prompt "TODO task:" --height 100 < /dev/null)
+    fi
 
     # If no task entered or cancelled, exit
     if [[ -z "$task" ]]; then
