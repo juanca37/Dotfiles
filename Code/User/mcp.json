@@ -1,0 +1,51 @@
+{
+	"servers": {
+		"github": {
+			"type": "http",
+			"url": "https://api.githubcopilot.com/mcp/",
+			"headers": {
+				"Authorization": "Bearer ${input:github_mcp_pat}"
+			}
+		},
+		"sequentialthinking": {
+			"command": "docker",
+			"args": [
+				"run",
+				"--rm",
+				"-i",
+				"mcp/sequentialthinking"
+			],
+			"type": "stdio"
+		},
+		"context7": {
+			"type": "http",
+			"url": "https://mcp.context7.com/mcp"
+		},
+		"mcp-obsidian": {
+			"command": "uv",
+			"args": [
+				"tool",
+				"run",
+				"mcp-obsidian"
+			],
+			"env": {
+				"OBSIDIAN_API_KEY": "${input:obsidian_api_key}"
+			},
+			"type": "stdio"
+		}
+	},
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "github_mcp_pat",
+			"description": "GitHub Personal Access Token",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "obsidian_api_key",
+			"description": "Obsidian API Key",
+			"password": true
+		}
+	]
+}
