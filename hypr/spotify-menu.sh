@@ -21,10 +21,14 @@ case "$choice" in
             h=$((sh/2))
             x=$(( (sw-w)/2 ))
             y=$(( (sh-h)/2 ))
-            # If window is already centered, hide it (move offscreen), else bring it back
-            if [ "$win_x" = "$x" ] && [ "$win_y" = "$y" ]; then
+            # Get current workspace of ncspot
+            ncspot_ws=$(hyprctl clients -j | jq -r --arg addr "$ncspot_win" '.[] | select(.address == $addr) | .workspace.id')
+            ws=$(hyprctl activeworkspace -j | jq -r '.id')
+            # Only hide if window is centered AND on current workspace
+            if [ "$win_x" = "$x" ] && [ "$win_y" = "$y" ] && [ "$ncspot_ws" = "$ws" ]; then
                 hyprctl dispatch movewindowpixel exact $((sw+100)) $((sh+100)),address:$ncspot_win
             else
+                hyprctl dispatch movetoworkspace $ws,address:$ncspot_win
                 hyprctl dispatch setfloating address:$ncspot_win
                 hyprctl dispatch resizewindowpixel exact $w $h,address:$ncspot_win
                 hyprctl dispatch movewindowpixel exact $x $y,address:$ncspot_win
