@@ -1,3 +1,13 @@
+/* Spotify (ncspot) widget styling - match right widgets */
+#custom-spotify {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #ddc7a1;
+    border: 2px solid #c7ab7a;
+    color: #1d2021;
+    border-radius: 25px;
+    font-weight: normal;
+}
 * {
     border: none;
     border-radius: 25px;

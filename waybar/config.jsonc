@@ -1,4 +1,5 @@
 {
+    
     "layer": "top",
     "spacing": 0,
     "height": 0,
@@ -15,11 +16,12 @@
     ],
     "modules-right": [
         "tray",
-        "cpu_text",
         "network",
         "custom/audio-device",
-        "pulseaudio"
+        "pulseaudio",
+        "custom/spotify"
     ],
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -82,5 +84,13 @@
         "interval": 5,
         "tooltip": false,
         "on-click": "~/.config/hypr/audio-switcher.sh"
+    },
+    "custom/spotify": {
+        "format": " {}",
+        "exec": "status=$(playerctl -p ncspot status 2>/dev/null); if [ \"$status\" = \"Playing\" ]; then icon=''; else icon=''; fi; info=$(playerctl -p ncspot metadata --format '{{title}} - {{artist}}' | awk -F' - ' '{t=substr($1,1,15); a=substr($2,1,15); print t \" - \" a}' | sed 's/&/\\&amp;/g'); echo $icon $info",
+        "interval": 2,
+        "on-click": "playerctl -p ncspot play-pause",
+        "on-scroll-up": "playerctl -p ncspot next",
+        "on-scroll-down": "playerctl -p ncspot previous"
     }
 }
