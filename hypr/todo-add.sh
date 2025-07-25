@@ -9,10 +9,7 @@ TODO_FILE="$HOME/Docs/Obsidian/Personal/TODO.md"
 
 add_todo() {
     # Use wl-paste to get clipboard content for pre-fill
-    selected_text=""
-    if command -v wl-paste &>/dev/null; then
-        selected_text=$(wl-paste 2>/dev/null)
-    fi
+    selected_text=$(wl-paste 2>/dev/null)
     echo "Clipboard content: '$selected_text'"
 
     # Prompt for TODO task using wofi, pre-filled if clipboard exists
@@ -64,6 +61,20 @@ view_todos() {
 
     # Remove [CURRENT] from all lines first
     sed -i 's/\[CURRENT\] //' "$TODO_FILE"
+
+    # Extract the text before the first | (or the whole line if no |)
+    todo_text="${selected%%|*}"
+    # Try to extract the first URL (http/https) from the text
+    url=$(echo "$todo_text" | grep -oE 'https?://[^ ]*' | head -n1)
+    if [[ -z "$url" ]]; then
+        # Try to extract a domain/path pattern (e.g. open.spotify.com/whatever)
+        url=$(echo "$todo_text" | grep -oE '([a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[^ ]*)' | head -n1)
+    fi
+    if [[ -n "$url" ]]; then
+        printf "%s" "$url" | wl-copy
+    else
+        printf "%s" "$todo_text" | wl-copy
+    fi
 
     if [[ "$selected" =~ ^\[CURRENT\] ]]; then
         # If selected is CURRENT, mark as DONE with timestamp
