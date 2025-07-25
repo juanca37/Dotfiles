@@ -59,8 +59,6 @@ view_todos() {
         return
     fi
 
-    # Remove [CURRENT] from all lines first
-    sed -i 's/\[CURRENT\] //' "$TODO_FILE"
 
     # Extract the text before the first | (or the whole line if no |)
     todo_text="${selected%%|*}"
