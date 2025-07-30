@@ -107,6 +107,9 @@ stow -v -t ~/.config waybar   # ~/.config/waybar/
 stow -v -t ~/.config wofi     # ~/.config/wofi/
 stow -v -t ~/.config kitty    # ~/.config/kitty/
 
+# Web browser
+stow -v -t ~/.config/qutebrowser qutebrowser
+
 # Development tools
 stow -v -t ~/.config/Code Code  # ~/.config/Code/User/
 ```
