@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.blocking.enabled:
-    global: true
+  content.javascript.clipboard:
+    https://github.com: access-paste
