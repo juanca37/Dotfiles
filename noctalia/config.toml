@@ -1,0 +1,16 @@
+# Noctalia v5 (https://docs.noctalia.dev/noctalia/). Linked to ~/.config/noctalia/config.toml.
+# Every *.toml in ~/.config/noctalia/ is merged. Changes made in the Settings GUI go to
+# ~/.local/state/noctalia/settings.toml and override this file. If an edit here seems ignored, check there.
+# All options with their defaults: https://github.com/noctalia-dev/noctalia/blob/main/example.toml
+
+[shell]
+# niri has no polkit agent of its own; without this, apps asking for admin rights never show a prompt.
+polkit_agent = true
+
+[notification]
+# Show toasts above fullscreen apps too (videos, presentations). Right-click the bell for Do Not Disturb.
+layer = "overlay"
+
+[widget.notifications]
+# Bell in the bar only appears when there are unread notifications.
+hide_when_no_unread = true

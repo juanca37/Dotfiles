@@ -56,6 +56,8 @@ If you prefer manual control or want to install specific configurations:
 | **Hypr** | Wayland compositor with window management | `hyprland`, `waybar`, `hyprpaper`, `hyprlock`, `hyprshot`, `bluez-utils`, `wireplumber`, `wofi`, `kitty` |
 | **Kitty** | GPU-accelerated terminal emulator | `kitty` |
 | **Neovim** | Modern text editor with IDE features | `neovim` |
+| **Niri** | Scrollable-tiling Wayland compositor (NixOS session, `es` layout binds) | `niri`, `noctalia`, `kitty` |
+| **Noctalia** | Desktop shell for niri: bar, launcher, notifications, lock screen, wallpaper | `noctalia` |
 | **Tmux** | Terminal multiplexer for session management | `tmux` |
 | **Waybar** | Highly customizable status bar for Wayland | `waybar` |
 | **Wofi** | Application launcher and dmenu replacement | `wofi` |
