@@ -342,6 +342,12 @@ window-rule {
     default-window-height { fixed 920; }
 }
 
+// Open the satty screenshot annotator (Mod+Shift+S) floating.
+window-rule {
+    match app-id="^com\\.gabm\\.satty$"
+    open-floating true
+}
+
 // Zoom screen-share helpers. Zoom runs as a native Wayland app (xwayland=false in
 // ~/.config/zoomus.conf), so its app-id is "Zoom". Through XWayland the annotation layer showed
 // up as a black screen with drawings appearing seconds late.
@@ -635,6 +641,8 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    // Region capture opened in satty for annotation (satty config: nixcfg desktop.nix).
+    Mod+Shift+S hotkey-overlay-title="Annotate a Screenshot: satty" { spawn "noctalia" "msg" "screenshot-region" "--no-save-to-file" "--no-copy-to-clipboard" "--pipe-to-command" "--pipe-command" "satty -f -"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
