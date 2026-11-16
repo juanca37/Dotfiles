@@ -403,6 +403,8 @@ binds {
     Mod+S hotkey-overlay-title="Control Center: Noctalia" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Shift+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
     Mod+N hotkey-overlay-title="Notification History: Noctalia" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    // Zoom screen-share annotation only lines up at scale 1: press before sharing, again after.
+    Mod+Z hotkey-overlay-title="Toggle 100% Scale (Zoom Screen Share)" { spawn "niri-zoom-present-scale"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
