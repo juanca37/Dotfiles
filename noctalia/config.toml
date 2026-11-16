@@ -11,6 +11,15 @@ polkit_agent = true
 # Show toasts above fullscreen apps too (videos, presentations). Right-click the bell for Do Not Disturb.
 layer = "overlay"
 
+[bar.default]
+# Bell and tray (Slack) sit right of the clock (moved from the right-hand cluster) so they are easy to spot.
+center = ["clock", "notifications", "tray"]
+end    = ["media", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+
 [widget.notifications]
-# Bell in the bar only appears when there are unread notifications.
+# Bell in the bar only appears when there are unread notifications,
+# as a filled accent-colored pill so it stands out.
 hide_when_no_unread = true
+capsule             = true
+capsule_fill        = "primary"
+color               = "on_primary"
