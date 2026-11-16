@@ -256,6 +256,10 @@ layout {
 // Its config lives in ~/.config/noctalia/config.toml (Dotfiles/noctalia).
 spawn-at-startup "noctalia"
 
+// Keeps Zoom's screen-share annotation layer and sharing bar on the focused workspace
+// (see the Zoom window rules below). Packaged in nixcfg common/niri.nix.
+spawn-at-startup "niri-zoom-share-follow"
+
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -336,6 +340,34 @@ window-rule {
     open-floating true
     default-column-width { fixed 1080; }
     default-window-height { fixed 920; }
+}
+
+// Zoom screen-share helpers. Zoom runs as a native Wayland app (xwayland=false in
+// ~/.config/zoomus.conf), so its app-id is "Zoom". Through XWayland the annotation layer showed
+// up as a black screen with drawings appearing seconds late.
+// "zoom" is the transparent full-screen annotation layer (pencil button + drawings);
+// "as_toolbar" is the sharing bar (Annotate, Stop share...). Zoom can't place windows on
+// Wayland, so float them here instead of tiling them as columns.
+window-rule {
+    match app-id="^Zoom$" title="^zoom$"
+    open-floating true
+    default-floating-position x=0 y=0 relative-to="top-left"
+    default-column-width { proportion 1.0; }
+    default-window-height { proportion 1.0; }
+    // niri paints the focus ring/border as a solid rectangle behind the window,
+    // which would fill this transparent layer with colour.
+    draw-border-with-background false
+    focus-ring { off; }
+    border { off; }
+    shadow { off; }
+}
+
+window-rule {
+    match app-id="^Zoom$" title="^as_toolbar$"
+    open-floating true
+    default-floating-position x=0 y=0 relative-to="top"
+    default-column-width { fixed 860; }
+    default-window-height { fixed 86; }
 }
 
 // Show Noctalia's blurred wallpaper copy behind workspaces in the Overview (Mod+O).
