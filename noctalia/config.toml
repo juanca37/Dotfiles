@@ -7,6 +7,11 @@
 # niri has no polkit agent of its own; without this, apps asking for admin rights never show a prompt.
 polkit_agent = true
 
+[shell.greeter_sync]
+# Copy wallpaper, colours, font and monitor scale to the login screen (Noctalia Greeter) whenever
+# they change. No password: nixcfg common/niri.nix allows juan via polkit.
+auto_sync = true
+
 [notification]
 # Show toasts above fullscreen apps too (videos, presentations). Right-click the bell for Do Not Disturb.
 layer = "overlay"
