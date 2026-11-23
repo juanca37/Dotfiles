@@ -18,7 +18,8 @@ layer = "overlay"
 
 [bar.default]
 # Bell and tray (Slack) sit right of the clock (moved from the right-hand cluster) so they are easy to spot.
-center = ["clock", "notifications", "tray"]
+# The globe next to the clock opens the world clock.
+center = ["clock", "world_clock", "notifications", "tray"]
 end    = ["media", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
 
 [widget.notifications]
@@ -28,3 +29,17 @@ hide_when_no_unread = true
 capsule             = true
 capsule_fill        = "primary"
 color               = "on_primary"
+
+[widget.world_clock]
+# Globe icon; click opens a panel with the times of the people I work with (zones and labels are
+# stored by the plugin, not here: ~/.local/state/noctalia/plugins/). Plan mode (calendar button)
+# scrubs a time and highlights who is in working hours.
+type = "noctalia/world_clock:bar"
+
+[plugins]
+enabled = ["noctalia/world_clock"]
+
+[plugin_settings."noctalia/world_clock"]
+time_format = "24h"
+# The panel is a fixed 340 px wide; small text keeps city names on one line and all zones visible.
+text_size = "small"
